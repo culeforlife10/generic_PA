@@ -1,0 +1,9 @@
+pandas
+Pillow
+scikit-learn
+tensorflow
+numpy
+matplotlib
+streamlit
+Datetime
+pickle5
