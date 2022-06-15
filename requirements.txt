@@ -7,3 +7,4 @@ matplotlib
 streamlit
 Datetime
 pickle5
+streamlit-option-menu
