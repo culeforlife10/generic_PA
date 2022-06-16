@@ -7,7 +7,15 @@ import streamlit as st
 from PIL import Image
 from datetime import datetime,timedelta
 
-
+def color_survived(val):
+    #color = 'green' if val=='Good' else 'red'
+    if val=='Good':
+        color='green'
+    elif val=='Average' or val=='Above Average':
+        color='yellow'
+    else:
+        color='red'
+    return f'background-color: {color}'
 
 def predict(end_date):
     new_df=pd.read_excel('chiller april-march.xlsx')
@@ -58,14 +66,47 @@ def predict(end_date):
     final_df1['kwh']=ytest_scaled
     ydf = final_df.set_index('date')
     final_df1.set_index('date',inplace=True)
+  
+    remarks=[]
+
+    
+    for i in final_df['kwh']:
+        if i>=0 and i<=5000:
+            i='Good'
+            remarks.append(i)
+            
+            
+
+        elif i>=5000 and i<= 16000:
+
+            i='Average'
+            remarks.append(i)
+           
+
+        elif i>=16000 and i<= 20000:
+            i='Above Average'
+            remarks.append(i)
+            
+
+        else:
+            i='High Consumption'
+            remarks.append(i)
+            
+
+        
+
+    final_df['Remarks']=remarks
+    
     plt.plot(ydf)
+    
     plt.plot(final_df1)
     plt.plot()
     plt.xticks(rotation=40)
     plt.grid(True,axis='y')
     plt.savefig('testvspred.png')
     final_df['date']=final_df['date'].dt.date
-    return final_df
+    
+    return final_df.style.applymap(color_survived, subset=['Remarks'])
 
 def UI():
     st.write('#### Prediction for Chiller Machines')
@@ -77,4 +118,6 @@ def UI():
         graph = Image.open('testvspred.png')
         col1.image(graph)
     
+
+
 
