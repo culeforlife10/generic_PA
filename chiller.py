@@ -118,8 +118,7 @@ def UI():
     min_value=datetime.strptime('06/30/2021',"%m/%d/%Y"),max_value= datetime.strptime('03/31/2022',"%m/%d/%Y"))
     col1=st.columns(5)
     if st.button('Predict'):
-        with col1:
-            col1.write(predict(end_date),1000,1000)
+        col1.write(predict(end_date),1000,1000)
         graph = Image.open('testvspred.png')
         st.image(graph)
     
