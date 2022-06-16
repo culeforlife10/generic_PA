@@ -104,7 +104,9 @@ def predict(end_date):
     plt.plot()
     plt.xticks(rotation=40)
     plt.grid(True,axis='y')
-    plt.savefig('testvspred.png')
+    plt.xlabel("Dates")
+    plt.ylabel("Consumption")
+    plt.savefig('testvspred.png',bbox_inches = 'tight')
     final_df['date']=final_df['date'].dt.date
     
     return final_df.style.applymap(color_survived, subset=['Remarks'])
@@ -114,11 +116,13 @@ def UI():
     #col1,col2,col3 = st.columns(3)
     end_date = st.date_input('Upto what date would you like to train the model on ?',datetime.strptime('03/01/2022',"%m/%d/%Y"),
     min_value=datetime.strptime('06/30/2021',"%m/%d/%Y"),max_value= datetime.strptime('03/31/2022',"%m/%d/%Y"))
+
     if st.button('Predict'):
         st.dataframe(predict(end_date),1000,1000)
         graph = Image.open('testvspred.png')
         st.image(graph)
     
+
 
 
 
