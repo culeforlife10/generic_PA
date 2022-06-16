@@ -96,7 +96,7 @@ def predict(end_date):
 
         
 
-    final_df['    Remarks   ']=remarks
+    final_df['Remarks']=remarks
     
     plt.plot(ydf)
     
@@ -109,7 +109,7 @@ def predict(end_date):
     plt.savefig('testvspred.png',bbox_inches = 'tight')
     final_df['date']=final_df['date'].dt.date
     
-    return final_df.style.applymap(color_survived, subset=['    Remarks   '])
+    return final_df.style.applymap(color_survived, subset=['Remarks'])
 
 def UI():
     st.write('#### Prediction for Chiller Machines')
