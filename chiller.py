@@ -96,7 +96,7 @@ def predict(end_date):
 
         
 
-    final_df['Remarks']=remarks
+    final_df['    Remarks   ']=remarks
     
     plt.plot(ydf)
     
