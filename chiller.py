@@ -113,14 +113,15 @@ def predict(end_date):
 
 def UI():
     st.write('#### Prediction for Chiller Machines')
-    col1,col2,col3 = st.columns(3)
-    end_date = col1.date_input('Upto what date would you like to train the model on ?',datetime.strptime('03/01/2022',"%m/%d/%Y"),
+    #col1,col2,col3 = st.columns(3)
+    col=st.columns(1)
+    end_date = st.date_input('Upto what date would you like to train the model on ?',datetime.strptime('03/01/2022',"%m/%d/%Y"),
     min_value=datetime.strptime('06/30/2021',"%m/%d/%Y"),max_value= datetime.strptime('03/31/2022',"%m/%d/%Y"))
     if st.button('Predict'):
         data=predict(end_date)
-        col2.write(data)
+        col.write(data)
         graph = Image.open('testvspred.png')
-        col3.image(graph)
+        st.image(graph)
     
 
 
