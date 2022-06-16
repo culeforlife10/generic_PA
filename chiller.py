@@ -114,7 +114,7 @@ def UI():
     end_date = st.date_input('Upto what date would you like to train the model on ?',datetime.strptime('03/01/2022',"%m/%d/%Y"),
     min_value=datetime.strptime('06/30/2021',"%m/%d/%Y"),max_value= datetime.strptime('03/31/2022',"%m/%d/%Y"))
     if st.button('Predict'):
-        st.dataframe(predict(end_date))
+        st.dataframe(predict(end_date),1000,1000)
         graph = Image.open('testvspred.png')
         st.image(graph)
     
