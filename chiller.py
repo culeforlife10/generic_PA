@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from PIL import Image
 from datetime import datetime,timedelta
+pd.set_option('display.width', 1000)
 
 def color_survived(val):
     #color = 'green' if val=='Good' else 'red'
