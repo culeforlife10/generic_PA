@@ -119,7 +119,7 @@ def UI():
     col1=st.columns(5)
     if st.button('Predict'):
         with col1:
-            st.write(predict(end_date),1000,1000)
+            st.write(predict(end_date))
         graph = Image.open('testvspred.png')
         st.image(graph)
     
