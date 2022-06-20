@@ -65,7 +65,6 @@ def predict(end_date):
     ypred_scaled=mms.inverse_transform(ypred)
     final_df['kwh']=ypred_scaled   # this shld be shown as output. This is our predicted output
     final_df1['kwh']=ytest_scaled
-    date=final_df1['date']
     ydf = final_df.set_index('date')
     final_df1.set_index('date',inplace=True)
   
