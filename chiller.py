@@ -65,6 +65,7 @@ def predict(end_date):
     ypred_scaled=mms.inverse_transform(ypred)
     final_df['kwh']=ypred_scaled   # this shld be shown as output. This is our predicted output
     final_df1['kwh']=ytest_scaled
+    date=final_df1['date']
     ydf = final_df.set_index('date')
     final_df1.set_index('date',inplace=True)
   
@@ -103,7 +104,7 @@ def predict(end_date):
     plt.plot(final_df1,label='Actual Values')
     plt.plot()
     plt.legend(loc="upper left")
-    plt.xticks(rotation=40)
+    plt.xticks(date,rotation=40)
     plt.grid(True,axis='y')
     plt.xlabel("Dates")
     plt.ylabel("Consumption")
