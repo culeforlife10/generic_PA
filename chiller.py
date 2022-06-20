@@ -104,7 +104,7 @@ def predict(end_date):
     plt.plot(final_df1,label='Actual Values')
     plt.plot()
     plt.legend(loc="upper left")
-    plt.xticks(date,rotation=40)
+    plt.xticks(rotation=40)
     plt.grid(True,axis='y')
     plt.xlabel("Dates")
     plt.ylabel("Consumption")
