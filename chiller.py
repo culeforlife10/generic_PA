@@ -98,10 +98,11 @@ def predict(end_date):
 
     final_df['Remarks']=remarks
     
-    plt.plot(ydf)
+    plt.plot(ydf,label='Prediction')
     
-    plt.plot(final_df1)
+    plt.plot(final_df1,label='Actual Values')
     plt.plot()
+    plt.legend(loc="upper left")
     plt.xticks(rotation=40)
     plt.grid(True,axis='y')
     plt.xlabel("Dates")
