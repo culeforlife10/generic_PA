@@ -98,7 +98,7 @@ def predict(end_date):
 
     final_df['Remarks']=remarks
     
-    plt.plot(ydf,label='Prediction')
+    plt.plot(ydf,label='Predicted Values')
     
     plt.plot(final_df1,label='Actual Values')
     plt.plot()
